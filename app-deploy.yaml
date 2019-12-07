@@ -14,7 +14,7 @@ metadata:
     stack.appsody.dev/configured: kabanero/nodejs-express:0.2
     stack.appsody.dev/created: 2019-11-22T09:54:22+0000
     stack.appsody.dev/revision: 676a405baed71b4532532322cc245b49291de886
-    stack.appsody.dev/tag: appsody/nodejs-express:0.2.10
+    stack.appsody.dev/tag: kabanero/nodejs-express:0.2.10
   creationTimestamp: null
   labels:
     image.opencontainers.org/title: quote-frontend
