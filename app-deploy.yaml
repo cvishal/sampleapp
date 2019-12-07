@@ -22,7 +22,7 @@ metadata:
   name: quote-frontend
   namespace: sampleapp
 spec:
-  applicationImage: dev.local/quote-frontend
+  applicationImage: docker-registry.default.svc:5000/sampleapp/sample
   pullPolicy: Always
   createKnativeService: false
   expose: true
