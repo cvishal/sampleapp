@@ -1,0 +1,54 @@
+apiVersion: appsody.dev/v1beta1
+kind: AppsodyApplication
+metadata:
+  annotations:
+    commit.image.appsody.dev/author: cvishal <cvishal@in.ibm.com>
+    commit.image.appsody.dev/committer: cvishal <cvishal@in.ibm.com>
+    commit.image.appsody.dev/date: Sat Dec 7 11:06:22 2019 +0530
+    commit.image.appsody.dev/message: second commit
+    image.opencontainers.org/created: "2019-12-07T11:29:30+05:30"
+    image.opencontainers.org/documentation: https://github.com/cvishal/sampleapp
+    image.opencontainers.org/revision: e88602f0a6622f5d82e057f19995325a103c9e7b-modified
+    image.opencontainers.org/source: https://github.com/cvishal/sampleapp/tree/master
+    image.opencontainers.org/url: https://github.com/cvishal/sampleapp
+    stack.appsody.dev/configured: appsody/nodejs-express:0.2
+    stack.appsody.dev/created: 2019-11-22T09:54:22+0000
+    stack.appsody.dev/revision: 676a405baed71b4532532322cc245b49291de886
+    stack.appsody.dev/tag: appsody/nodejs-express:0.2.10
+  creationTimestamp: null
+  labels:
+    image.opencontainers.org/title: quote-frontend
+    stack.appsody.dev/version: 0.2.10
+  name: quote-frontend
+  namespace: sampleapp
+spec:
+  applicationImage: dev.local/quote-frontend
+  pullPolicy: Always
+  createKnativeService: false
+  expose: true
+  livenessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /live
+      port: 3000
+    initialDelaySeconds: 5
+    periodSeconds: 2
+  monitoring:
+    labels:
+      k8s-app: quote-frontend
+  readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /ready
+      port: 3000
+    initialDelaySeconds: 5
+    periodSeconds: 2
+    timeoutSeconds: 1
+  service:
+    annotations:
+      prometheus.io/scrape: "true"
+    port: 3000
+    type: NodePort
+  stack: nodejs-express
+  version: 1.0.0
+status: {}
